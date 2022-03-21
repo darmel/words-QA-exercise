@@ -10,6 +10,11 @@ def test_empty_string(monkeypatch):
     assert (main('')) == 'not valid'
 
 
+def test_not_alpha(monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda: '')
+    assert (main('#1')) == 'not valid'
+
+
 def test_valid_word():
     assert 0 < (enter_new_word('casa')[1])
 
